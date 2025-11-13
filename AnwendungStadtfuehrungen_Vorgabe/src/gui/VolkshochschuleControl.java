@@ -20,13 +20,9 @@ public class VolkshochschuleControl {
 
 	void leseAusDatei(String typ){
     	try {
-      		if("csv".equals(typ)){
-      			model.schreibeVolkshochschulenInCsvDatei();
-      		}
-       		else{
-	   			view.zeigeInformationsfensterAn(
-	   				"Noch nicht implementiert!");
-	   		}
+      		
+      			model.leseVolkshochschuleAusDatei(typ);
+      		
 		}
 		catch(IOException exc){
 			view.zeigeFehlermeldungsfensterAn(

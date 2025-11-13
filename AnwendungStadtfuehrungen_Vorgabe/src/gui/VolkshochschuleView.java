@@ -1,5 +1,7 @@
 package gui;
 
+import java.io.IOException;
+
 import business.VolkshochschuleModel;
 import business.Volkshochschulkurs;
 import javafx.event.ActionEvent;
@@ -158,7 +160,12 @@ public class VolkshochschuleView {
 	    mnItmCsvExport.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent e) {
-				leseAusDatei("csv");
+				try {
+			        model.schreibeVolkshochschulenInCsvDatei();
+			    } catch(IOException ex) {
+			        zeigeFehlermeldungsfensterAn(ex.getMessage());
+			    }
+			
 			}	
 	    });
     }

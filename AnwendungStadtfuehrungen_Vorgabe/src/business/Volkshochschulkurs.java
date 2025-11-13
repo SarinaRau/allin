@@ -70,7 +70,7 @@ public class Volkshochschulkurs {
   		return this.getKursname() + trenner 
   			+ this.getKursbeitrag() + trenner
   			+ this.getWochentag() + trenner
-  		    + this.getStartuhrzeit() + trenner + "\n"
+  		    + this.getStartuhrzeit() + trenner 
   		    + this.getVorkenntnisseAlsString(trenner) + "\n";
   	}
 }
