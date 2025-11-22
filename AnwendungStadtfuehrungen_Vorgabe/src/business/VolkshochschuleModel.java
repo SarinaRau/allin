@@ -35,6 +35,7 @@ public class VolkshochschuleModel {
 		String[] zeile=reader.leseAusDatei();
 		this.volkshochschulkurs=new Volkshochschulkurs (zeile[0], Integer.parseInt(zeile[1]),
 				(zeile[2]),Float.parseFloat(zeile[3]), zeile[4].split("_"));
+		reader.schliesseDatei();
 		
 	}
 }

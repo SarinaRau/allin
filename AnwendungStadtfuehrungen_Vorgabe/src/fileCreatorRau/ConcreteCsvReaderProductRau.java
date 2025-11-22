@@ -15,16 +15,9 @@ public class ConcreteCsvReaderProductRau extends ReaderProductRau {
 	@Override
 	public String[] leseAusDatei() throws IOException {
 		
-		String[] kurse=new String[100];
-		String zeile;
-		zeile=ein.readLine();
-		int i=0;
-		while(i< kurse.length) {
-			kurse[i]=zeile;
-			zeile=ein.readLine();
-			i++;
-		}
-		return kurse;
+		String[] zeile=ein.readLine().split(";");
+		
+		return zeile;
 	}
 
 	@Override
