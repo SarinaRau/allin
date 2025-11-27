@@ -1,4 +1,4 @@
-package gui;
+package gui.guiVolkshochschule;
 
 import java.io.IOException;
 

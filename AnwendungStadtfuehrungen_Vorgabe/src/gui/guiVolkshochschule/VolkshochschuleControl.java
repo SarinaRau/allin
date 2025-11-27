@@ -1,4 +1,4 @@
-package gui;
+package gui.guiVolkshochschule;
 
 
 import java.io.IOException;
@@ -6,15 +6,17 @@ import java.io.IOException;
 import business.VolkshochschuleModel;
 import business.Volkshochschulkurs;
 import javafx.stage.Stage;
+import observer.Observer;
 
-public class VolkshochschuleControl {
+public class VolkshochschuleControl implements Observer {
 	
 	private VolkshochschuleView view;
 	private VolkshochschuleModel model;
 	
 	public VolkshochschuleControl(Stage primaryStage) {
-		this.model = new VolkshochschuleModel();
+		this.model = VolkshochschuleModel.getInstance();
 		this.view = new VolkshochschuleView(this, primaryStage, model);
+		model.addObserver(this);
 	}
 	
 
@@ -46,6 +48,13 @@ public class VolkshochschuleControl {
      	}
      	}
     }
+
+
+	@Override
+	public void update() {
+		view.zeigeVolkshochschulenAn();
+		
+	}
 }
 
 
