@@ -3,6 +3,7 @@ package business;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Vector;
 
 import fileCreatorRau.ConcreteReaderCreatorRau;
@@ -13,7 +14,10 @@ import observer.Observer;
 
 public class VolkshochschuleModel implements Observable {
 
-	Volkshochschulkurs volkshochschulkurs;
+	//Volkshochschulkurs volkshochschulkurs;
+	
+	ArrayList<Volkshochschulkurs>vhs=new ArrayList<>();
+	
 	private static VolkshochschuleModel theInstance=null;
 	
 	private VolkshochschuleModel() {
@@ -27,19 +31,21 @@ public class VolkshochschuleModel implements Observable {
 		return theInstance;
 	}
 	
-	public Volkshochschulkurs getVolkshochschulkurs() {
-		return volkshochschulkurs;
+	public ArrayList<Volkshochschulkurs> getVolkshochschulkurs() {
+		return vhs;
 	}
 
-	public void setVolkshochschulkurs(Volkshochschulkurs volkshochschulkurs) {
-		this.volkshochschulkurs = volkshochschulkurs;
+	public void addVolkshochschulkurs(Volkshochschulkurs volkshochschulkurs) {
+		this.vhs.add(volkshochschulkurs);
 		notifyObservers();
 	}
 
 	public void schreibeVolkshochschulenInCsvDatei()throws IOException {
 		
 			BufferedWriter aus = new BufferedWriter(new FileWriter("VolkshochschulkurseAusgabe.csv", true));
-			aus.write(this.getVolkshochschulkurs().gibVolkshochschuleZurueck(';'));
+			for(Volkshochschulkurs kurs:vhs) {
+			aus.write(kurs.gibVolkshochschuleZurueck(';'));
+			}
 			aus.close();
    			
 		
@@ -48,9 +54,11 @@ public class VolkshochschuleModel implements Observable {
 	public void leseVolkshochschuleAusDatei(String typ) throws IOException {
 		ReaderCreatorRau creator=new ConcreteReaderCreatorRau();
 		ReaderProductRau reader=creator.factoryMethod(typ);
-		String[] zeile=reader.leseAusDatei();
-		this.volkshochschulkurs=new Volkshochschulkurs (zeile[0], Integer.parseInt(zeile[1]),
-				(zeile[2]),Float.parseFloat(zeile[3]), zeile[4].split("_"));
+		ArrayList<Volkshochschulkurs>gelesen=reader.leseAusDatei();
+		for(Volkshochschulkurs kurs:gelesen) {
+			
+			vhs.add(kurs);
+		}
 		reader.schliesseDatei();
 		notifyObservers();
 		

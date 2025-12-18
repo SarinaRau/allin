@@ -151,13 +151,14 @@ public class VolkshochschuleView {
 	       	 	leseAusDatei("csv");
 	    	}
 	    });
+	    
 	    mnItmTxtImport.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override
 		    public void handle(ActionEvent e) {
 		     	leseAusDatei("txt");
 		    }
     	});
-	    mnItmCsvExport.setOnAction(new EventHandler<ActionEvent>() {
+	    /*mnItmCsvExport.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent e) {
 				try {
@@ -167,15 +168,27 @@ public class VolkshochschuleView {
 			    }
 			
 			}	
+	    });*/
+	    mnItmCsvExport.setOnAction(e->{
+	    	try {
+		        model.schreibeVolkshochschulenInCsvDatei();
+		    } catch(IOException ex) {
+		        zeigeFehlermeldungsfensterAn(ex.getMessage());
+		    }
+		
+		
 	    });
     }
     
    
    
    public void zeigeVolkshochschulenAn(){
-    	if(model.getVolkshochschulkurs() != null){
-    		txtAnzeige.setText(
-    			model.getVolkshochschulkurs().gibVolkshochschuleZurueck(' '));
+    	if(model.getVolkshochschulkurs().size()>0){
+    		StringBuffer text=new StringBuffer();
+    		for(Volkshochschulkurs kurs:model.getVolkshochschulkurs()) {
+    			text.append(kurs.gibVolkshochschuleZurueck(';')+"\n");
+    		}
+    		this.txtAnzeige.setText(text.toString());
     	}
     	else{
     		zeigeInformationsfensterAn("Bisher wurde kein Volkshochschulkurs aufgenommen!");

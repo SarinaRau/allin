@@ -15,6 +15,9 @@ public class Volkshochschulkurs {
        	this.wochentag = wochentag;
        	this.startuhrzeit = startuhrzeit;
        	this.vorkenntnisse = vorkenntnisse;
+       	if(kursname==null) {
+       		throw new IllegalArgumentException();
+       	}
     }
 
 	public String getKursname() {
@@ -73,5 +76,5 @@ public class Volkshochschulkurs {
   		    + this.getStartuhrzeit() + trenner 
   		    + this.getVorkenntnisseAlsString(trenner) + "\n";
   	}
-}
+}//(Politik,14,Mittwoch,16.00,keine
 

@@ -40,7 +40,7 @@ public class VolkshochschuleControl implements Observer {
 	       	float startuhrzeit, String[] vorkenntnisse){
     {
     	try{
-    		model.setVolkshochschulkurs(new Volkshochschulkurs(kursname,kursbeitrag,wochentag,startuhrzeit,vorkenntnisse));
+    		model.addVolkshochschulkurs(new Volkshochschulkurs(kursname,kursbeitrag,wochentag,startuhrzeit,vorkenntnisse));
     		view.zeigeInformationsfensterAn("Das Freizeitbad wurde aufgenommen!");
        	}
     	catch(Exception exc){

@@ -3,6 +3,7 @@ package gui.guiWissenschaft;
 
 
 import business.VolkshochschuleModel;
+import business.Volkshochschulkurs;
 import javafx.event.*;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -74,10 +75,12 @@ private VolkshochschuleModel volkshochschulkurseModel;
     }
    
     public void zeigeVolkshochschulkurseAn(){
-    		if(volkshochschulkurseModel.getVolkshochschulkurs()!= null){
-    			txtAnzeigeVolkshochschulkurse.setText(
-    				volkshochschulkurseModel.getVolkshochschulkurs()
- 				.gibVolkshochschuleZurueck(' '));
+    		if(volkshochschulkurseModel.getVolkshochschulkurs().size()>0){
+    			StringBuffer text=new StringBuffer();
+    			for(Volkshochschulkurs kurs:volkshochschulkurseModel.getVolkshochschulkurs()) {
+    				text.append(kurs.gibVolkshochschuleZurueck(';')+"\n");
+    			}
+    			this.txtAnzeigeVolkshochschulkurse.setText(text.toString());
     		}
     		else{
     			zeigeInformationsfensterAn(
