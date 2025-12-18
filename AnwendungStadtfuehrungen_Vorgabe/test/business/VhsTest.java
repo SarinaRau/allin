@@ -22,8 +22,8 @@ class VhsTest {
 
 	@Test
 	void test() {
-		assertTrue(kurs.getKursbeitrag()==14,()->"muss 14 sein");
-		Throwable exc=assertThrows(IllegalArgumentException.class,()->{
+		assertTrue(()->kurs.getKursbeitrag()==14,()->"muss 14 sein");
+		assertThrows(IllegalArgumentException.class,()->{
 			kurs=new Volkshochschulkurs(null,14,"Mittwoch",16.00f,new String[] {"keine"});
 		});
 		
