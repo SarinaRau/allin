@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import business.Volkshochschulkurs;
+import business.businessVhs.Volkshochschulkurs;
 
 public class ConcreteCsvReaderProductRau extends ReaderProductRau {
 

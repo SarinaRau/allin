@@ -5,13 +5,13 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import business.Volkshochschulkurs;
+import business.businessVhs.Volkshochschulkurs;
 public class ConcreteTxtReaderProductRau extends ReaderProductRau {
 	
 BufferedReader ein;
 	
 	public ConcreteTxtReaderProductRau() throws IOException {
-		ein=new BufferedReader(new FileReader("VolkshochschulkurseAusgabe.txt"));
+		ein=new BufferedReader(new FileReader("VhsLesen.txt"));
 	}
 	
 	@Override

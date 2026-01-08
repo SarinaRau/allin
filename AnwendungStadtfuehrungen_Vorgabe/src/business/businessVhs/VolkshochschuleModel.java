@@ -1,4 +1,4 @@
-package business;
+package business.businessVhs;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -64,7 +64,7 @@ public class VolkshochschuleModel implements Observable {
 		
 	}
 	
-	private Vector<Observer>observers=new Vector();
+	private Vector<Observer>observers=new Vector<>();
 
 	@Override
 	public void addObserver(Observer obs) {
@@ -81,7 +81,7 @@ public class VolkshochschuleModel implements Observable {
 	@Override
 	public void notifyObservers() {
 		for(int i=0;i<observers.size();i++) {
-			observers.elementAt(i).update();
+			observers.elementAt(i).update(this);
 		}
 		
 	}

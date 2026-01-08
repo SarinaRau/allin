@@ -2,8 +2,8 @@ package gui.guiVolkshochschule;
 
 import java.io.IOException;
 
-import business.VolkshochschuleModel;
-import business.Volkshochschulkurs;
+import business.businessVhs.VolkshochschuleModel;
+import business.businessVhs.Volkshochschulkurs;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;

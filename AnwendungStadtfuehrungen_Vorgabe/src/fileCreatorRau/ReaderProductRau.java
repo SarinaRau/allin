@@ -3,7 +3,7 @@ package fileCreatorRau;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import business.Volkshochschulkurs;
+import business.businessVhs.Volkshochschulkurs;
 
 public abstract class ReaderProductRau {
 	

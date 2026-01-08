@@ -1,4 +1,4 @@
-package business;
+package business.businessVhs;
 
 public class Volkshochschulkurs {
 	

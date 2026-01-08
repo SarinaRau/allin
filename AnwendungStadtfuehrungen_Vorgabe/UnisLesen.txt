@@ -1,0 +1,2 @@
+MatheOnline;14;Mittwoch;16.00;keine;Zoom
+KunstOnline;10;Freitag;18.30;keine;Teams
