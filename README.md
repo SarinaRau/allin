@@ -22,3 +22,23 @@ In der Klasse Trikot:
        + this.getGroesse() + trenner 
             + super.gibZurueck(trenner); 
  }
+
+ View Alternative 
+
+ private void zeigeTrikotsAn() { 
+      txtAnzeigeTrikots.setText(trikotsModel.gibTrikotsZurueck('|')); 
+     } 
+     
+     private void zeigeBaelleAn() { 
+      String text = ""; 
+      // Ersetzen der for-Schleife durch eine for each-Schleife ist  
+   // nur moeglich, wenn SportartikelListe eine Instanz von Iterable  
+   // ist. 
+       for(int i = 0; i < baelleModel.getBaelle().getAnzahlSportartikel();  
+    i++) { 
+        text = text + baelleModel.getBaelle() 
+     .getSportartikel(i).gibBallZurueck('|') + "\n"; 
+       } 
+      txtAnzeigeBaelle.setText(text); 
+      zeigeInformationsfensterAn("Beachten Sie die Anzeige der Bälle!"); 
+     }
